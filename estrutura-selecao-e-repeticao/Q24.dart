@@ -6,7 +6,7 @@ void main() {
   int contador = 0;
 
   while (true) {
-    stdout.write('Digite um número (negativo para sair): ');
+    stdout.write('Digite um número negativo para sair: ');
     int? numero = int.tryParse(stdin.readLineSync()!);
 
     if (numero == null) {
