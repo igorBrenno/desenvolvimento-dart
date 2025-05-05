@@ -5,7 +5,7 @@ void main() {
   enviarEmail("Fulano", "Queijo", "Qualho");
 }
 
-void enviarEmail(String dest, {String? assunto = "Sem assunto", String? corpo = "Mensagem Vazia"}) {
+void enviarEmail(String dest, [String? assunto = "Sem assunto", String? corpo = "Mensagem Vazia"]) {
   print("Para: $dest");
   print("Assunto: $assunto");
   print("Mensagem: $corpo");
