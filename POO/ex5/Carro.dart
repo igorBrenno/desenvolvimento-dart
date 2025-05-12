@@ -21,10 +21,11 @@ class Carro {
     _ano = ano;
   }
 
-  void CalcularIdade() {
+  void calcularIdade() {
     int calc = 2025 - _ano;
     print("A idade do carro é $calc");
   }
+
 
   @override
   String toString() {
