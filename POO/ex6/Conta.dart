@@ -1,37 +1,24 @@
 
 
 abstract class Conta {
-  int _numeroConta;
-  String _titular;
-  double _saldo;
+  static int instancias = 0;
+  double _saldo = 0;
 
 
-  Conta(this._numeroConta, this._titular, this._saldo);
+  Conta() {
+    instancias++;
+  }
 
   void sacar(double v);
 
-
-  get numeroConta => this._numeroConta;
-
-  set numeroConta( value) => this._numeroConta = value;
-
-  get titular => this._titular;
-
-  set titular( value) => this._titular = value;
 
   get saldo => this._saldo;
 
   set saldo( value) => this._saldo = value;
 
-  void depositar(double valor) {
-    if (valor > 0) {
-      _saldo += valor;
-    }
-  }
+  void depositar(double valor);
 
   void exibir() {
-    print('Conta: $_numeroConta');
-    print('Titular: $_titular');
     print('Saldo: $_saldo');
     print("=======================");
   }

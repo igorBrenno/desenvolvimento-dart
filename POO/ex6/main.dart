@@ -3,11 +3,11 @@ import 'ContaCorrente.dart';
 import 'ContaPoupanca.dart';
 
 void main() {
-  ContaCorrente c1 = ContaCorrente(1, "Igor", 500.90, 100);
-  ContaPoupanca c2 = ContaPoupanca(2, "Bento", 622);
+  ContaCorrente c1 = ContaCorrente();
+  c1.depositar(500);
 
- c2.exibir();
- c2.sacar(50);
+  c1.exibir();
 
- c2.exibir();
+  c1.sacar(50);
+  c1.exibir();
 }
