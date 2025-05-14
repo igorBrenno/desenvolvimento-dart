@@ -1,7 +1,7 @@
 
 import 'Conta.dart';
 
-class ContaCorrente implements Conta{
+class ContaCorrente extends Conta{
   @override
   var numeroConta;
   
@@ -11,18 +11,19 @@ class ContaCorrente implements Conta{
   @override
   var titular;
 
+  double _limite;
 
-  ContaCorrente(int numeroConta, String titular, double saldo):super() {
-    
-  }
+
+  ContaCorrente(int numeroConta, String titular, double saldo, double limite)
+  : _limite = limite,
+  super(numeroConta, titular, saldo);
 
   @override
-  void sacar(double v) {
-    if (v == null) {
-      print("valor não pode ser nulo");
+  void sacar(double valor) {
+    if (valor > 0 && saldo + _limite >= valor) {
+      saldo -= valor;
     } else {
-      saldo = saldo! - v;
-      print("Valor sacado! $v");
+      print("Limite excedido ou valor inválido.");
     }
   }
   
@@ -31,5 +32,8 @@ class ContaCorrente implements Conta{
     // TODO: implement depositar
   }
   
+  get limite => this._limite;
+
+ set limite( value) => this._limite = value;
 
 }

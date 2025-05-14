@@ -1,16 +1,15 @@
 
 
 abstract class Conta {
-  int? _numeroConta;
-  String? _titular;
-  double? _saldo;
+  int _numeroConta;
+  String _titular;
+  double _saldo;
 
 
-  Conta(this._numeroConta , this._titular, this._saldo);
+  Conta(this._numeroConta, this._titular, this._saldo);
 
   void sacar(double v);
 
-  void depositar(double v);
 
   get numeroConta => this._numeroConta;
 
@@ -24,5 +23,17 @@ abstract class Conta {
 
   set saldo( value) => this._saldo = value;
 
+  void depositar(double valor) {
+    if (valor > 0) {
+      _saldo += valor;
+    }
+  }
+
+  void exibir() {
+    print('Conta: $_numeroConta');
+    print('Titular: $_titular');
+    print('Saldo: $_saldo');
+    print("=======================");
+  }
   
 }

@@ -1,6 +1,6 @@
 import 'Conta.dart';
 
-class ContaPoupanca implements Conta{
+class ContaPoupanca extends Conta{
   @override
   var numeroConta;
   
@@ -10,17 +10,17 @@ class ContaPoupanca implements Conta{
   @override
   var titular;
   
+  ContaPoupanca(int numeroConta, String titular, double saldo)
+      : super(numeroConta, titular, saldo);
 
   @override
-  void sacar(double v) {
-    if (v == null) {
-      print("valor não pode ser nulo");
-    }
-      saldo = saldo! - v;
-      print("Valor sacado! $v");
+  void sacar(double valor) {
+    if (valor > 0 && saldo >= valor) {
+      saldo -= valor;
+    } else {
+      print("Saldo insuficiente ou valor inválido.");
     }
   }
-  
 
   @override
   void depositar(double v) {
